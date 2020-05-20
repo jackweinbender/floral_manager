@@ -1,7 +1,7 @@
 FROM ruby:2.6.6
 
 # Change me
-ARG APP_NAME=myapp
+ARG APP_NAME=fm
 
 # CORE RAILS DEPS
 RUN apt-get update -qq && apt-get install -y --no-install-recommends \

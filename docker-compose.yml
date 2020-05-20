@@ -6,13 +6,13 @@ services:
       - postgres-data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
-      POSTGERS_USER: myapp
-      POSTGRES_DB: myapp_development
+      POSTGRES_USER: fm
+      POSTGRES_DB: fm_development
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
-      - .:/myapp
+      - .:/fm
       - bundler-cache:/bundler
     ports:
       - "3000:3000"

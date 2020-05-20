@@ -1,4 +1,4 @@
-FROM ruby:2.6.6-slim
+FROM ruby:2.6.6
 
 # Change me
 ARG APP_NAME=myapp
@@ -30,7 +30,7 @@ RUN mkdir /${APP_NAME}
 WORKDIR /${APP_NAME}
 COPY Gemfile /${APP_NAME}/Gemfile
 COPY Gemfile.lock /${APP_NAME}/Gemfile.lock
-RUN bundle install --deployment
+RUN bundle install
 COPY . /${APP_NAME}
 
 # Add a script to be executed every time the container starts.
@@ -40,4 +40,4 @@ ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3000
 
 # Start the main process.
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]

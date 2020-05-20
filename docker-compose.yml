@@ -3,7 +3,7 @@ services:
   db:
     image: postgres:9.6-alpine
     volumes:
-      - ./tmp/db:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
       POSTGERS_USER: myapp
@@ -13,7 +13,13 @@ services:
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/myapp
+      - bundler-cache:/bundler
     ports:
       - "3000:3000"
+    environment:
+      BUNDLE_PATH: /bundler/vendor
     depends_on:
       - db
+volumes:
+  postgres-data:
+  bundler-cache:

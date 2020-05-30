@@ -1,0 +1,17 @@
+<div class="my-2 border bg-gray-100 ">
+    <h3 class="text-lg p-2 font-bold bg-teal-900 text-gray-100">
+        <%= list_name %>
+    </h3>
+    
+    <% if items.blank? %>
+        <div class="px-4">
+            Nothing to see here
+        </div>
+    <% else %>
+        <% items.each do |item| %>
+            <div class="px-4 my-2 border-b">
+                <%= render partial: "recipes/recipe-item", locals: { item: item, recipe_count: recipe_count } %>
+            </div>
+        <% end %>
+    <% end %>
+</div>

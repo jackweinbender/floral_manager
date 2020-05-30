@@ -1,0 +1,21 @@
+<div class="my-2 border bg-gray-100 ">
+    <h3 class="text-lg p-2 font-bold bg-teal-900 text-gray-100">
+        {{@listName}}
+    </h3>
+    <hr />
+    {{#if @items.length}}
+        {{#each @items as |item| }}
+            <div class="px-4 my-2 border-b">
+                <RecipeItem 
+                    @name={{item}}
+                    @count={{2}}
+                    @price={{"$12.34"}} 
+                    @recipecount={{@recipecount}} />
+            </div>
+        {{/each}}
+    {{else}}
+        <div class="px-4">
+            Nothing to see here
+        </div>
+    {{/if}}
+</div>

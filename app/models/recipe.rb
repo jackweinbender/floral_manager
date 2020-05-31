@@ -1,8 +1,3 @@
-class Recipe
-    include ActiveModel::AttributeMethods
-    include ActiveModel::Model
-    
-    attr_accessor   :name,
-                    :description,
-                    :count
+class Recipe < ApplicationRecord
+    has_many :recipe_line_items
 end

@@ -20,4 +20,9 @@ class ExampleReflex < ApplicationReflex
   #   end
   #
   # Learn more at: https://docs.stimulusreflex.com
+
+  def update
+    recipe = RecipeInstance.find(element.dataset[:id])
+    recipe.update({count: element[:value]})
+  end
 end

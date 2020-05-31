@@ -1,13 +1,11 @@
 <div class="flex py-1">
     <input  type="text" 
             class="w-2/4 p-1 border"
-            value=<%= item.name %> />
+            value=<%= "TODO" %> />
     <label  for="price" class="w-1/4 text-right p-1">Count: </label>
-    <input  id="firstname"
-            type="number" 
-            value=<%= item.count %>
-            class="w-1/4 text-center border" />
-            <%# @key-down=<%= #this.updateCount %>
+    <%= number_field_tag("count", item.count, { 
+                data: { reflex: "input->RecipeLineItemReflex#update_count", id: item.id },
+                class: "w-1/4 text-center border" }) %>
 </div>
 <div class="flex p-1">
     <label  for="price" 

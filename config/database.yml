@@ -17,8 +17,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: db
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: db
 
 development:
   <<: *default
@@ -54,6 +54,8 @@ development:
 test:
   <<: *default
   database: fm_test
+  username: fm
+  password: password
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
